@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const Logo = () => {
-	return <h2 className='text-2xl bold'>GymMate</h2>;
+	return <h1 className="inline-flex text-2xl font-bold">GymMate</h1>;
 };

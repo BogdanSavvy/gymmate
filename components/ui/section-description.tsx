@@ -10,7 +10,7 @@ export const SectionDescription = ({
 	styles?: string;
 }) => {
 	return (
-		<p className={cn('text-lg leading-normal text-slate-400', styles)}>
+		<p className={cn('text-lg leading-normal text-gray', styles)}>
 			{children}
 		</p>
 	);

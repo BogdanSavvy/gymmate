@@ -17,7 +17,7 @@ export const Button = ({
 	type?: 'button' | 'submit' | 'reset' | undefined;
 	styles?: string;
 	disabled?: boolean;
-	handleClick: MouseEventHandler<HTMLButtonElement> | undefined;
+	handleClick?: MouseEventHandler<HTMLButtonElement> | undefined;
 }) => {
 	switch (variant) {
 		case 'contained':
@@ -25,7 +25,7 @@ export const Button = ({
 				<button
 					type={type}
 					className={cn(
-						'flex items-center justify-center text-white bg-black py-2 px-4 hover:text-black hover:bg-white transition-all disabled:opacity-50',
+						'flex items-center justify-center font-semibold text-custom-white bg-dark-gray py-3 px-4 hover:text-dark-gray hover:bg-custom-white transition-all disabled:opacity-40 disabled:pointer-events-none',
 						styles,
 					)}
 					disabled={disabled}
@@ -39,7 +39,7 @@ export const Button = ({
 				<button
 					type={type}
 					className={cn(
-						'flex items-center justify-center border-2 text-black bg-transparent py-2 px-4 hover:text-white hover:bg-black transition-all disabled:opacity-50',
+						'flex items-center justify-center border-2 border-dark-gray font-semibold text-dark-gray bg-transparent py-3 px-4 hover:text-custom-white hover:bg-dark-gray hover:border-transparent transition-all disabled:opacity-40 disabled:pointer-events-none',
 						styles,
 					)}
 					disabled={disabled}
@@ -54,7 +54,7 @@ export const Button = ({
 				<button
 					type={type}
 					className={cn(
-						'flex items-center justify-center p-3 rounded-full bg-black transition-all disabled:opacity-50',
+						'flex items-center justify-center p-3 rounded-full bg-dark-gray transition-all hover:bg-black disabled:opacity-40',
 						styles,
 					)}
 					disabled={disabled}
@@ -63,5 +63,7 @@ export const Button = ({
 					{children}
 				</button>
 			);
+		default:
+			break;
 	}
 };

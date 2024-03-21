@@ -12,7 +12,7 @@ export const SectionTitle = ({
 	return (
 		<h2
 			className={cn(
-				'text-4xl font-bold text-black leading-relaxed tracking-wide z-10',
+				'text-4xl font-bold text-dark-gray leading-relaxed tracking-wide z-10',
 				styles,
 			)}
 		>
