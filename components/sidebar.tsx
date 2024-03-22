@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { MainNav } from '@/components/header/main-nav';
 import { cn } from '@/lib/utils';
-import { Button } from './ui/button';
+import { MainNav } from '@/components/header/main-nav';
+import { Button } from '@/components/ui/button';
 
 export const Sidebar = ({ isOpen = false }: { isOpen?: boolean }) => {
 	return (
