@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 
 type Route = {
-	href: string;
+	ancre: string;
 	label: string;
 	isActive: boolean;
 };
@@ -18,27 +18,32 @@ export const MainNav = ({ styles }: { styles?: string }) => {
 	const routes: Route[] = [
 		{
 			label: 'Home',
-			href: '/',
+			ancre: '/',
 			isActive: path === '/' ? true : false,
 		},
 		{
 			label: 'About',
-			href: '/about',
+			ancre: '#about',
 			isActive: path === '/about' ? true : false,
+		},
+		{
+			label: 'Download',
+			ancre: '#download',
+			isActive: path === '/download' ? true : false,
 		},
 	];
 
 	return (
 		<nav className="flex flex-col">
 			<ul className={cn('flex flex-row gap-x-2', styles)}>
-				{routes.map((route: Route) => (
-					<li key={route.href}>
+				{routes.map((route: Route, index: number) => (
+					<li key={index}>
 						<Link
 							className={cn(
 								'text-gray uppercase',
 								route.isActive && 'text-dark-gray font-semibold',
 							)}
-							href={route.href}
+							href={route.ancre}
 						>
 							{route.label}
 						</Link>

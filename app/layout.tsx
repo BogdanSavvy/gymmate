@@ -1,12 +1,16 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 
 import { Header } from '@/components/header/header';
 import { Footer } from '@/components/footer/footer';
-import { Sidebar } from '@/components/sidebar';
+import { ThemeProvider } from '@/providers/theme-provider';
 
-const inter = Inter({ subsets: ['latin'] });
+const poppins = Poppins({
+	display: 'swap',
+	weight: ['400', '500', '600'],
+	subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
 	title: 'GymMate',
@@ -20,13 +24,20 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
-				<div className="h-full flex flex-col">
-					<Header />
-					<Sidebar />
-					<main className="flex-auto">{children}</main>
-					<Footer />
-				</div>
+			<body className={poppins.className}>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<div className="h-full flex flex-col">
+						<Header />
+						{/* <Sidebar /> */}
+						<main className="flex-auto">{children}</main>
+						<Footer />
+					</div>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

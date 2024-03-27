@@ -1,39 +1,38 @@
 import React from 'react';
+import { Container } from './container';
+import { Badge } from './ui/badge';
+import { Button } from './ui/button';
 import Image from 'next/image';
-import Link from 'next/link';
-
-import { Container } from '@/components/container';
-import { SectionTitle } from '@/components/ui/section-title';
-import { SectionDescription } from '@/components/ui/section-description';
-import { Button } from '@/components/ui/button';
 
 export const Hero = () => {
 	return (
-		<section className="relative h-screen pt-52">
+		<section className="w-full h-full">
 			<Container>
-				<article className="max-w-md relative z-10 flex flex-col gap-y-4">
-					<SectionTitle>Hero title</SectionTitle>
-					<SectionDescription styles="flex-auto mb-10">
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora
-						perferendis, dicta itaque obcaecati architecto accusamus fuga!
-						Blanditiis numquam sed magnam dicta, tempora aspernatur asperiores,
-						animi repellat voluptate dignissimos dolor provident?
-					</SectionDescription>
-					<Button styles="max-w-[200px]" variant="contained">
-						<Link href="/">Try it now</Link>
-					</Button>
-				</article>
+				<div className="flex flex-row justify-between items-center">
+					<div className="flex flex-col gap-y-5">
+						<div className="h-[50px] flex flex-row items-center self-start py-2 px-2 bg-slate-400 rounded-full">
+							<Badge className="h-full px-4">New</Badge>
+							<p className="px-2">
+								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+							</p>
+						</div>
+						<article className="flex flex-col gap-y-8">
+							<h1 className="font-semibold text-[170px] leading-none">
+								GymMate App now available
+							</h1>
+							<p className="text-lg max-w-3xl">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
+								asperiores, earum ipsa, ducimus blanditiis veritatis odit
+								inventore ab magni in reprehenderit molestias eum ipsum. Soluta
+								maxime cupiditate delectus veritatis voluptate.
+							</p>
+						</article>
+						<Button className="self-start" size="lg">
+							Get now
+						</Button>
+					</div>
+				</div>
 			</Container>
-
-			{/* //todo: CHANGE BACKGROUND IMAGE */}
-			<Image
-				className="absolute w-full h-full object-cover"
-				src="/images/sunset_ocean_tree.jpg"
-				alt="Hero image"
-				sizes="100vw"
-				quality={100}
-				fill
-			/>
 		</section>
 	);
 };

@@ -5,5 +5,5 @@ export const Container = ({
 }: {
 	children: React.ReactNode;
 }) => {
-	return <div className="mx-auto max-w-[1460px] px-[10px]">{children}</div>;
+	return <div className="mx-auto max-w-[1220px] px-[10px]">{children}</div>;
 };
