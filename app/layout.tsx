@@ -2,9 +2,12 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
 
+import { ThemeProvider } from '@/providers/theme-provider';
+import { MenuProvider } from '@/providers/menu-provider';
 import { Header } from '@/components/header/header';
 import { Footer } from '@/components/footer/footer';
-import { ThemeProvider } from '@/providers/theme-provider';
+import { Sidebar } from '@/components/sidebar';
+import { PageSettings } from '@/components/page-settings';
 
 const poppins = Poppins({
 	display: 'swap',
@@ -31,12 +34,15 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<div className="h-full flex flex-col">
-						<Header />
-						{/* <Sidebar /> */}
-						<main className="flex-auto">{children}</main>
-						<Footer />
-					</div>
+					<MenuProvider>
+						<div className="h-full flex flex-col">
+							<Header />
+							<Sidebar />
+							<main className="flex-auto">{children}</main>
+							<Footer />
+							<PageSettings />
+						</div>
+					</MenuProvider>
 				</ThemeProvider>
 			</body>
 		</html>

@@ -1,25 +1,23 @@
-import React from 'react';
+'use client';
 
-import { MainNav } from '@/components/header/main-nav';
+import React, { useContext } from 'react';
+
 import { cn } from '@/lib/utils';
-import { Button } from './ui/button';
+import { MainNav } from '@/components/header/main-nav';
+import { MenuContext } from '@/providers/menu-provider';
 
-export const Sidebar = ({ isOpen = false }: { isOpen?: boolean }) => {
+export const Sidebar = () => {
+	const [isActive] = useContext(MenuContext);
+
 	return (
 		<aside
 			className={cn(
 				'fixed -left-[400px] z-20 h-full w-[400px] px-4 pt-28 pb-8 bg-black transition-all',
-				isOpen && 'left-0',
+				isActive && 'left-0',
 			)}
 		>
 			<div className="flex flex-col justify-between h-full">
 				<MainNav styles="h-full flex-col flex-auto gap-y-4" />
-				<Button
-					styles="self-end flex-0 w-[48px] h-[48] bg-custom-white"
-					variant="icon"
-				>
-					Back
-				</Button>
 			</div>
 		</aside>
 	);

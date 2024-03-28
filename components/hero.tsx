@@ -1,12 +1,18 @@
 import React from 'react';
-import { Container } from './container';
-import { Badge } from './ui/badge';
-import { Button } from './ui/button';
-import Image from 'next/image';
+
+import { Container } from '@/components/container';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import {
+	Card,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 
 export const Hero = () => {
 	return (
-		<section className="w-full h-full">
+		<section className="w-full h-full pb-28">
 			<Container>
 				<div className="flex flex-row justify-between items-center">
 					<div className="flex flex-col gap-y-5">
@@ -17,7 +23,7 @@ export const Hero = () => {
 							</p>
 						</div>
 						<article className="flex flex-col gap-y-8">
-							<h1 className="font-semibold text-[170px] leading-none">
+							<h1 className="font-semibold text-[130px] leading-none">
 								GymMate App now available
 							</h1>
 							<p className="text-lg max-w-3xl">
@@ -30,6 +36,26 @@ export const Hero = () => {
 						<Button className="self-start" size="lg">
 							Get now
 						</Button>
+					</div>
+					<div className="flex flex-col gap-y-3">
+						<Card>
+							<CardHeader>
+								<CardTitle>title</CardTitle>
+								<CardDescription>
+									Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+									Sapiente, consequuntur.
+								</CardDescription>
+							</CardHeader>
+						</Card>
+						<Card>
+							<CardHeader>
+								<CardTitle>title</CardTitle>
+								<CardDescription>
+									Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+									Sapiente, consequuntur.
+								</CardDescription>
+							</CardHeader>
+						</Card>
 					</div>
 				</div>
 			</Container>
